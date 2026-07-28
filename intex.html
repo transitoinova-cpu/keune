@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautybiz Comércio de Produtos de Beleza LTDA</title>
+    <meta name="description" content="Beautybiz - Distribuição e comércio de produtos de beleza e cosméticos com excelência e sofisticação.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- RESETS & VARIÁVEIS --- */
+        :root {
+            --primary-color: #a82054;       /* Rose/Bordeaux elegante */
+            --primary-hover: #861742;
+            --secondary-color: #d4af37;     /* Gold metálico */
+            --secondary-hover: #b89528;
+            --dark-color: #1a1a1a;
+            --light-color: #fdf8f9;
+            --bg-light: #f9f6f7;
+            --white: #ffffff;
+            --gray-light: #ece6e8;
+            --gray-medium: #7a6e73;
+            --gray-dark: #3a3336;
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.04);
+            --shadow-md: 0 10px 28px rgba(0,0,0,0.08);
+            --shadow-lg: 0 16px 36px rgba(168, 32, 84, 0.12);
+            --transition: all 0.3s ease-in-out;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-medium);
+            margin-bottom: 45px;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* --- HEADER & NAVBAR --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(168, 32, 84, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(168, 32, 84, 0.25);
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 170px 0 100px;
+            background: linear-gradient(135deg, rgba(253, 248, 249, 0.9) 0%, rgba(255, 255, 255, 1) 50%, rgba(249, 246, 247, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.1rem;
+            line-height: 1.2;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: var(--gray-medium);
+            margin-bottom: 30px;
+            max-width: 520px;
+        }
+
+        .badge-solidez {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(168, 32, 84, 0.2);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+            color: var(--white);
+            box-shadow: 0 4px 18px rgba(168, 32, 84, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(168, 32, 84, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--dark-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* CARD HERO */
+        .hero-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .hero-card .cnpj {
+            color: var(--gray-medium);
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .quick-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.92rem;
+        }
+
+        .quick-info-item i {
+            color: var(--primary-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        /* --- SOBRE NOS --- */
+        .sobre {
+            padding: 85px 0;
+            background-color: var(--white);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .card-feature {
+            background-color: var(--bg-light);
+            padding: 32px 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card-feature:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            background-color: var(--white);
+            border-color: rgba(168, 32, 84, 0.2);
+        }
+
+        .card-feature .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-color), var(--white));
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(168, 32, 84, 0.1);
+        }
+
+        .card-feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .card-feature p {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+        }
+
+        /* --- DETALHES EMPRESARIAIS --- */
+        .empresa-info {
+            padding: 85px 0;
+            background-color: var(--bg-light);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .info-box {
+            background-color: var(--white);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .info-box i {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 14px;
+            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-box-content label {
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            color: var(--gray-medium);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .info-box-content span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        /* --- LOCALIZACAO & CONTATO --- */
+        .contato-localizacao {
+            padding: 85px 0;
+            background-color: var(--white);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .card-contato {
+            background-color: var(--bg-light);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray-light);
+        }
+
+        .card-contato h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-contato h3 i {
+            color: var(--primary-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-info-text {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .contact-info-text i {
+            color: var(--primary-color);
+        }
+
+        .btn-reveal {
+            background-color: var(--white);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-reveal:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .address-box {
+            line-height: 1.8;
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .correspondencia-card {
+            margin-top: 20px;
+            background-color: var(--white);
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+            font-size: 0.88rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 25px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo-text {
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            color: #a3999e;
+            margin-top: 15px;
+            font-size: 0.88rem;
+            max-width: 350px;
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+            color: var(--white);
+            font-family: 'Cinzel', serif;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #a3999e;
+            font-size: 0.88rem;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #82777c;
+            font-size: 0.82rem;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 85px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 85px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVEGAÇÃO -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <div class="logo-text">
+                    BEAUTYBIZ
+                    <span>PRODUTOS DE BELEZA</span>
+                </div>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#inicio" class="active">Início</a>
+                <a href="#sobre">Sobre Nós</a>
+                <a href="#informacoes">Dados Cadastrais</a>
+                <a href="#contato">Contato & Localização</a>
+            </nav>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="badge-solidez">
+                    <i class="fa-solid fa-award"></i> Desde 2011 • 15 anos de excelência
+                </div>
+                <h1>Inovação e sofisticação em <span>produtos de beleza</span>.</h1>
+                <p>A Beautybiz Comércio de Produtos de Beleza LTDA atua com liderança e compromisso no segmento de cosméticos e cuidados pessoais, oferecendo soluções de alto padrão.</p>
+                <div class="hero-btns">
+                    <a href="#contato" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Fale Conosco</a>
+                    <a href="#informacoes" class="btn btn-secondary">Dados da Empresa</a>
+                </div>
+            </div>
+            
+            <div class="hero-card">
+                <span class="status-badge"><i class="fa-solid fa-circle-check"></i> Situação Cadastral: Ativa</span>
+                <h3>Beautybiz Comércio de Produtos de Beleza LTDA</h3>
+                <div class="cnpj">CNPJ: 14.118.680/0001-57</div>
+                <div class="quick-info-list">
+                    <div class="quick-info-item">
+                        <i class="fa-solid fa-building"></i>
+                        <span><strong>Tipo:</strong> Matriz</span>
+                    </div>
+                    <div class="quick-info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Guarulhos - São Paulo</span>
+                    </div>
+                    <div class="quick-info-item">
+                        <i class="fa-solid fa-vault"></i>
+                        <span><strong>Capital Social:</strong> R$ 10.000.000,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOS / DIFERENCIAIS -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <h2 class="section-title">Nossos <span>Pilares</span></h2>
+            <p class="section-subtitle">A força de uma trajetória pautada pela qualidade e confiabilidade no mercado de cosméticos</p>
+            
+            <div class="grid-3">
+                <div class="card-feature">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>Solidez & Confiança</h3>
+                    <p>Com um expressivo capital social e 15 anos de atuação contínua, garantimos segurança e alta capacidade operacional.</p>
+                </div>
+                <div class="card-feature">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3>Inovação em Beleza</h3>
+                    <p>Constante busca pelas melhores tendências e formulações no mercado de cuidados pessoais e bem-estar.</p>
+                </div>
+                <div class="card-feature">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3>Logística Estratégica</h3>
+                    <p>Localização privilegiada na região de Guarulhos/SP, permitindo dinamismo e eficiência na distribuição.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORMAÇÕES CADASTRAIS -->
+    <section class="empresa-info" id="informacoes">
+        <div class="container">
+            <h2 class="section-title">Informações <span>Cadastrais</span></h2>
+            <p class="section-subtitle">Dados corporativos públicos e status de registro institucional</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <i class="fa-solid fa-id-card"></i>
+                    <div class="info-box-content">
+                        <label>Razão Social</label>
+                        <span>Beautybiz Comércio de Produtos de Beleza LTDA</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <div class="info-box-content">
+                        <label>CNPJ</label>
+                        <span>14.118.680/0001-57</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <div class="info-box-content">
+                        <label>Inscrição Estadual (SP)</label>
+                        <span>796.337.693.110</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-calendar-day"></i>
+                    <div class="info-box-content">
+                        <label>Data de Abertura</label>
+                        <span>09/02/2011</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-sitemap"></i>
+                    <div class="info-box-content">
+                        <label>Natureza Jurídica</label>
+                        <span>Sociedade Empresária Limitada</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-vault"></i>
+                    <div class="info-box-content">
+                        <label>Capital Social</label>
+                        <span>R$ 10.000.000,00</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-building-flag"></i>
+                    <div class="info-box-content">
+                        <label>Porte / Tipo</label>
+                        <span>Sem Enquadramento / Matriz</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <div class="info-box-content">
+                        <label>Situação Cadastral</label>
+                        <span>Ativa (Desde 09/02/2011)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO E LOCALIZAÇÃO -->
+    <section class="contato-localizacao" id="contato">
+        <div class="container">
+            <h2 class="section-title">Contato & <span>Localização</span></h2>
+            <p class="section-subtitle">Entre em contato através dos nossos canais de comunicação ou endereço físico</p>
+
+            <div class="grid-2">
+                <!-- Card de Contatos -->
+                <div class="card-contato">
+                    <h3><i class="fa-solid fa-headset"></i> Canais Ativos</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-info-text">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span id="email-text">le****@****.com.br</span>
+                        </div>
+                        <button class="btn-reveal" onclick="revealData('email-text', 'legal@beautybiz.com.br')">Ver E-mail</button>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-info-text">
+                            <i class="fa-solid fa-phone"></i>
+                            <span id="tel1-text">(11) 208****-****</span>
+                        </div>
+                        <button class="btn-reveal" onclick="revealData('tel1-text', '(11) 2088-1000')">Ver Telefone</button>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-info-text">
+                            <i class="fa-solid fa-phone"></i>
+                            <span id="tel2-text">(11) 331****-****</span>
+                        </div>
+                        <button class="btn-reveal" onclick="revealData('tel2-text', '(11) 3311-2000')">Ver Telefone</button>
+                    </div>
+                </div>
+
+                <!-- Card de Endereço -->
+                <div class="card-contato">
+                    <h3><i class="fa-solid fa-location-dot"></i> Localização da Matriz</h3>
+                    <div class="address-box">
+                        <p><strong>Logradouro:</strong> Avenida Papa João Paulo I, S/N</p>
+                        <p><strong>Complemento:</strong> Lote Gleba C Mod F - G300 Sala 7</p>
+                        <p><strong>Bairro:</strong> Residencial Parque Cumbica</p>
+                        <p><strong>CEP:</strong> 07174-005</p>
+                        <p><strong>Município:</strong> Guarulhos - SP</p>
+                    </div>
+
+                    <div class="correspondencia-card">
+                        <p><strong><i class="fa-solid fa-box-archive"></i> Endereço para Correspondência:</strong></p>
+                        <p>Beautybiz Comércio de Produtos de Beleza LTDA<br>
+                        Avenida Papa João Paulo I, S/N - Lote Gleba C Mod F - G300 Sala 7<br>
+                        Residencial Parque Cumbica - Guarulhos SP - CEP: 07174-005</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">
+                        BEAUTYBIZ
+                        <span>PRODUTOS DE BELEZA</span>
+                    </div>
+                    <p>Beautybiz Comércio de Produtos de Beleza LTDA - Excelência, tradição e qualidade no mercado de cosméticos e produtos de beleza.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#informacoes">Dados Cadastrais</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Compliance Corporativo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2011 - 2026 Beautybiz Comércio de Produtos de Beleza LTDA. Todos os direitos reservados. CNPJ: 14.118.680/0001-57</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Menu Mobile Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Fechar menu ao clicar nos links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Revelar dados mascarados
+        function revealData(elementId, realValue) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = realValue;
+                element.style.color = 'var(--primary-color)';
+                element.style.fontWeight = '600';
+            }
+        }
+
+        // Destaque no Menu por Scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 160)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
